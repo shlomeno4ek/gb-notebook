@@ -18,7 +18,11 @@ public class UserView {
 
         while (true) {
             String command = prompt("Введите команду: ").toUpperCase();
-            com = Commands.valueOf(command);
+            try{
+                com = Commands.valueOf(command);
+            } catch (Exception e) {
+                com = Commands.NONE;
+            }
             if (com == Commands.EXIT) return;
             switch (com) {
                 case CREATE:
@@ -46,8 +50,8 @@ public class UserView {
                     String userIdDelete = prompt("Enter user id: ");
                     userController.delete(userIdDelete);
                     break;
-                default:
-                    System.out.print("Такой команды не существует!");
+                case NONE:
+                    System.out.print("Такой команды не существует!\n");
             }
         }
     }
