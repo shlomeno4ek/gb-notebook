@@ -41,6 +41,13 @@ public class UserView {
                 case UPDATE:
                     String userId = prompt("Enter user id: ");
                     userController.updateUser(userId, createUser());
+                    break;
+                case DELETE:
+                    String userIdDelete = prompt("Enter user id: ");
+                    userController.delete(userIdDelete);
+                    break;
+                default:
+                    System.out.print("Такой команды не существует!");
             }
         }
     }
