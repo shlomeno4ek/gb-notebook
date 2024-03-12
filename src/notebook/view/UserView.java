@@ -4,6 +4,7 @@ import notebook.controller.UserController;
 import notebook.model.User;
 import notebook.util.Commands;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class UserView {
@@ -52,6 +53,9 @@ public class UserView {
                     break;
                 case NONE:
                     System.out.print("Такой команды не существует!\n");
+                case LIST:
+                    System.out.println("Список команд: " + Arrays.toString(Commands.values()));
+                    break;
             }
         }
     }
